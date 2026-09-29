@@ -1,0 +1,34 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://www.kapruka.com/');
+  await page.getByRole('link', { name: 'Login to Your Account' }).click();
+  await page.getByRole('textbox', { name: 'Email address' }).click();
+  await page.getByRole('textbox', { name: 'Email address' }).fill('sushmitharokhade06@gmail.com');
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).fill('Sush@1994');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.getByRole('textbox', { name: 'SEARCH PRODUCTS..' }).click();
+  await page.getByRole('textbox', { name: 'SEARCH PRODUCTS..' }).fill('cake');
+  await page.getByText('Cake', { exact: true }).click();
+  await page.getByRole('link', { name: 'Top Choices 4.22 Lbs' }).click();
+  await page.getByRole('button', { name: ' Add to Cart' }).click();
+  await page.locator('#hide_cart_popup').getByRole('link', { name: 'View Cart' });
+  //await page.getByRole('link', { name: 'View Cart' }).click();
+  await page.getByRole('button', { name: 'Continue to Delivery' }).click();
+  await page.getByRole('textbox', { name: 'Recipient\'s Name Recipient\'s' }).click();
+  await page.getByRole('textbox', { name: 'Recipient\'s Name Recipient\'s' }).fill('Sushmitha');
+  await page.getByRole('textbox', { name: 'Recipient\'s Name Recipient\'s' }).press('Tab');
+  await page.getByRole('textbox', { name: 'Your Receipient\'s phone' }).fill('13144325325');
+  await page.getByRole('textbox', { name: 'Your Receipient\'s phone' }).press('Tab');
+  await page.getByRole('textbox', { name: 'Address in Sri Lanka' }).click();
+  await page.getByRole('textbox', { name: 'Address in Sri Lanka' }).fill('Sk building');
+  await page.getByText('Type Here').click();
+  await page.getByRole('treeitem', { name: 'Ahangama' }).click();
+  await page.getByRole('textbox', { name: 'House' }).click();
+  await page.getByRole('treeitem', { name: 'School' }).click();
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await page.getByRole('textbox', { name: 'Delivery Date *' }).fill('2026-09-07');
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await page.getByRole('button', { name: 'PROCEED TO PAYMENT ➔' }).click();
+});
